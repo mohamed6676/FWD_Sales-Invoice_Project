@@ -20,7 +20,7 @@ public class ItemModelTable extends AbstractTableModel {
     public int getRowCount() {
         return items.size();
      }
-
+    
     @Override
     public int getColumnCount() {
         return columns.length;

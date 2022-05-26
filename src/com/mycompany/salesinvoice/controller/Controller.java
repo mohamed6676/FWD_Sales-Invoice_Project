@@ -32,6 +32,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import javax.swing.table.DefaultTableModel;
 
 public class Controller implements ActionListener,ListSelectionListener{
     private ViewInvoiceFrame frame;
@@ -93,6 +94,7 @@ public class Controller implements ActionListener,ListSelectionListener{
             frame.getjLabelInvoiceTotal().setText(""+currentInvoice.getTotalOfInvoice());
             ItemModelTable itemmodel=new ItemModelTable(currentInvoice.getItems());
             frame.getjTableItemTable().setModel(itemmodel);
+            frame.getjTableItemTable().setVisible(true);
             itemmodel.fireTableDataChanged();
         }
     }
@@ -210,13 +212,19 @@ public class Controller implements ActionListener,ListSelectionListener{
     }
 
     private void deleteInvoice() {
+            frame.getjTableItemTable().setVisible(false);
+            frame.getjTableItemTable().removeAll();
         int selected=frame.getjTableInvoiceTable().getSelectedRow();
         if(selected!=-1){
             frame.getInvoices().remove(selected);
             frame.getInvoicemodel().fireTableDataChanged();
         }
+            frame.getjLabelInvoiceTotal().setText("");
+            frame.getjLabelCustomerName().setText("");
+            frame.getjLabelInvoiceDate().setText("");
+            frame.getjLabelInvoiceNumber().setText("");
     }
-
+    
     private void createNewItem() {
        itDialog=new ItemViewDialog(frame);
        itDialog.setVisible(true);

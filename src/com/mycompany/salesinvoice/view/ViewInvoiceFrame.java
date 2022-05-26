@@ -3,6 +3,7 @@ package com.mycompany.salesinvoice.view;
 import com.mycompany.salesinvoice.controller.Controller;
 import com.mycompany.salesinvoice.model.Invoice;
 import com.mycompany.salesinvoice.model.InvoiceModelTable;
+import com.mycompany.salesinvoice.model.ItemModelTable;
 import java.util.ArrayList;
 import javax.swing.JLabel;
 import javax.swing.JTable;
@@ -62,6 +63,11 @@ public class ViewInvoiceFrame extends javax.swing.JFrame {
         jButtonCreateInvoice.setText("Create New Invoice");
 
         jButtonDeleteInvoice.setText("Delete Invoice");
+        jButtonDeleteInvoice.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDeleteInvoiceActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Invoice Number");
 
@@ -178,6 +184,10 @@ public class ViewInvoiceFrame extends javax.swing.JFrame {
     private void jMenuItemLoadFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemLoadFileActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItemLoadFileActionPerformed
+
+    private void jButtonDeleteInvoiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteInvoiceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonDeleteInvoiceActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
